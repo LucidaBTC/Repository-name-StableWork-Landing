@@ -1,0 +1,14 @@
+# Next.js build files
+.next/
+
+# node packages
+node_modules/
+
+# local environment
+.env
+.DS_Store
+
+# system + junk files
+*.log
+*.pack.gz
+*.tsbuildinfo
