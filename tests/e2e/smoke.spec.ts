@@ -4,7 +4,7 @@ test.describe("Smoke Tests", () => {
   test("homepage loads and has correct title", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle(/StableWork/);
-    
+
     // Check key elements are present
     await expect(page.getByText("Freelance worldwide")).toBeVisible();
     await expect(page.getByText("Get paid in stablecoins")).toBeVisible();
@@ -13,16 +13,24 @@ test.describe("Smoke Tests", () => {
   test("key pages load correctly", async ({ page }) => {
     // Test direct navigation to key pages
     await page.goto("/how-it-works");
-    await expect(page.getByRole("heading", { name: "How It Works" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "How It Works" }),
+    ).toBeVisible();
 
     await page.goto("/jobs");
-    await expect(page.getByRole("heading", { name: "Browse Jobs" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Browse Jobs" }),
+    ).toBeVisible();
 
     await page.goto("/freelancers");
-    await expect(page.getByRole("heading", { name: "Find Freelancers" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Find Freelancers" }),
+    ).toBeVisible();
 
     await page.goto("/pricing");
-    await expect(page.getByRole("heading", { name: "Simple, Fair Pricing" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Simple, Fair Pricing" }),
+    ).toBeVisible();
   });
 
   test("comparison page loads and has correct content", async ({ page }) => {
