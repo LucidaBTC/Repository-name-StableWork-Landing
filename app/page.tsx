@@ -23,6 +23,7 @@ import {
 import { TrustSection } from "@/components/common/TrustSection";
 import { FreelancerUseCases } from "@/components/common/FreelancerUseCases";
 import { FreelancerPersonaGrid } from "@/components/common/FreelancerPersonaGrid";
+import { JobCardRow } from "@/components/common/JobCardRow";
 
 const features = [
   {
@@ -209,6 +210,9 @@ export default function Home() {
 
           {/* Freelancer Persona Grid */}
           <FreelancerPersonaGrid />
+
+          {/* Featured Jobs */}
+          <JobCardRow />
 
           {/* Freelancer Use Cases */}
           <FreelancerUseCases />
