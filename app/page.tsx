@@ -92,20 +92,17 @@ export default function Home() {
         <main role="main" aria-label="Main content">
           {/* Hero Section */}
           <section
-            className="relative overflow-hidden py-20 lg:py-28 space-y-6 bg-gradient-to-br from-[#0A1F44] via-[#1F3B7B] to-[#3C4CE5]"
+            className="relative overflow-hidden py-20 sm:py-32 bg-gradient-to-br from-[#0A1F44] via-[#1F3B7B] to-[#3C4CE5]"
             aria-labelledby="hero-heading"
           >
             <GlobeBackground />
 
             <Container>
-              <div className="relative z-10 mx-auto max-w-3xl text-center">
+              <div className="relative z-10 mx-auto max-w-4xl text-center">
                 <div className="animate-fade-in-up">
-                  <div>
+                  <div className="mb-6">
                     <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white border border-white/10 shadow-soft animate-scale-in">
-                      <Star
-                        className="w-4 h-4 text-yellow-500"
-                        aria-hidden="true"
-                      />
+                      <Star className="w-4 h-4 text-yellow-500" aria-hidden="true" />
                       <span>Trusted by 10,000+ freelancers worldwide</span>
                     </div>
                   </div>
@@ -128,15 +125,14 @@ export default function Home() {
                   </h1>
 
                   <p
-                    className="max-w-3xl text-lg leading-relaxed text-white/80 mx-auto animate-fade-in-up"
+                    className="mt-6 text-lg leading-8 text-white/80 max-w-2xl mx-auto animate-fade-in-up"
                     style={{ animationDelay: "0.5s" }}
                   >
-                    Instant, borderless payouts in USDC or DAI — no banks, no
-                    delays.
+                    Instant, borderless payouts in USDC or DAI — no banks, no delays.
                   </p>
 
                   <div
-                    className="animate-fade-in-up"
+                    className="mt-10 animate-fade-in-up"
                     style={{ animationDelay: "0.7s" }}
                   >
                     <Button
@@ -145,15 +141,9 @@ export default function Home() {
                       className="group bg-white text-[#0A1F44] hover:bg-white/90"
                       aria-describedby="join-waitlist-description"
                     >
-                      <Users
-                        className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle"
-                        aria-hidden="true"
-                      />
+                      <Users className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" aria-hidden="true" />
                       Join Waitlist
-                      <ArrowRight
-                        className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                        aria-hidden="true"
-                      />
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </Button>
                     <span id="join-waitlist-description" className="sr-only">
                       Join our waitlist to be notified when StableWork launches
@@ -166,7 +156,7 @@ export default function Home() {
 
           {/* Mini How It Works */}
           <section
-            className="py-20 lg:py-28 space-y-6 bg-white/50 backdrop-blur-sm border-y border-secondary-200/50"
+            className="py-12 bg-white/50 backdrop-blur-sm border-y border-secondary-200/50"
             aria-labelledby="mini-how-it-works-heading"
           >
             <Container>
@@ -181,14 +171,11 @@ export default function Home() {
                       className="text-center group animate-fade-in-up"
                       style={{ animationDelay: `${index * 150}ms` }}
                     >
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center mb-3">
                         <span className="text-2xl mr-2" aria-hidden="true">
                           {item.step}
                         </span>
-                        <item.icon
-                          className="w-5 h-5 text-primary-600"
-                          aria-hidden="true"
-                        />
+                        <item.icon className="w-5 h-5 text-primary-600" aria-hidden="true" />
                       </div>
                       <h3 className="text-sm font-semibold text-secondary-900">
                         {item.title}
@@ -202,14 +189,14 @@ export default function Home() {
 
           {/* Trust Strip */}
           <section
-            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
+            className="py-12 bg-secondary-900"
             aria-labelledby="trust-heading"
           >
             <Container>
               <div className="mx-auto max-w-7xl animate-fade-in">
                 <h2
                   id="trust-heading"
-                  className="text-center text-sm font-semibold text-secondary-300"
+                  className="text-center text-sm font-semibold text-secondary-300 mb-8"
                 >
                   POWERED BY LEADING WEB3 INFRASTRUCTURE
                 </h2>
@@ -225,10 +212,7 @@ export default function Home() {
                       role="listitem"
                       title={item.description}
                     >
-                      <span
-                        className="text-2xl group-hover:scale-110 transition-transform"
-                        aria-hidden="true"
-                      >
+                      <span className="text-2xl group-hover:scale-110 transition-transform" aria-hidden="true">
                         {item.logo}
                       </span>
                       <span className="text-lg font-semibold">{item.name}</span>
@@ -241,7 +225,7 @@ export default function Home() {
 
           {/* Stats Section */}
           <section
-            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
+            className="py-16 bg-secondary-900"
             aria-labelledby="stats-heading"
           >
             <Container>
@@ -257,7 +241,7 @@ export default function Home() {
                     role="listitem"
                   >
                     <div
-                      className="text-3xl lg:text-4xl font-bold text-white"
+                      className="text-3xl lg:text-4xl font-bold text-white mb-2"
                       aria-label={`${stat.value} ${stat.label}`}
                     >
                       {stat.value}
@@ -274,18 +258,18 @@ export default function Home() {
 
           {/* Features Section */}
           <section
-            className="py-20 lg:py-28 space-y-6 bg-gradient-to-br from-white to-secondary-50/50"
+            className="py-20 sm:py-32 bg-gradient-to-br from-white to-secondary-50/50"
             aria-labelledby="features-heading"
           >
             <Container>
-              <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
+              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
                 <h2
                   id="features-heading"
                   className="text-3xl font-bold tracking-tight text-secondary-900 sm:text-4xl"
                 >
                   Why choose StableWork?
                 </h2>
-                <p className="max-w-3xl text-lg leading-relaxed text-secondary-600 mx-auto">
+                <p className="mt-6 text-lg leading-8 text-secondary-600">
                   The future of freelance work is here. Join the revolution.
                 </p>
               </div>
@@ -298,16 +282,13 @@ export default function Home() {
                     style={{ animationDelay: `${index * 100}ms` }}
                     role="listitem"
                   >
-                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
-                      <feature.icon
-                        className="w-6 h-6 text-white"
-                        aria-hidden="true"
-                      />
+                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
+                      <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
                     </div>
-                    <h3 className="text-lg font-semibold text-secondary-900">
+                    <h3 className="text-lg font-semibold text-secondary-900 mb-2">
                       {feature.title}
                     </h3>
-                    <p className="max-w-3xl text-lg leading-relaxed text-secondary-600">
+                    <p className="text-secondary-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </article>
@@ -318,18 +299,18 @@ export default function Home() {
 
           {/* How It Works Preview */}
           <section
-            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
+            className="py-20 sm:py-32 bg-secondary-900"
             aria-labelledby="how-it-works-heading"
           >
             <Container>
-              <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
+              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
                 <h2
                   id="how-it-works-heading"
                   className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
                   How it works
                 </h2>
-                <p className="max-w-3xl text-lg leading-relaxed text-secondary-300 mx-auto">
+                <p className="mt-6 text-lg leading-8 text-secondary-300">
                   Get started in minutes, not days
                 </p>
               </div>
@@ -340,22 +321,19 @@ export default function Home() {
                     step: "1",
                     title: "Create Profile",
                     icon: Users,
-                    description:
-                      "Set up your freelancer profile with skills and portfolio",
+                    description: "Set up your freelancer profile with skills and portfolio",
                   },
                   {
                     step: "2",
                     title: "Find Jobs",
                     icon: Globe,
-                    description:
-                      "Browse and apply to jobs from clients worldwide",
+                    description: "Browse and apply to jobs from clients worldwide",
                   },
                   {
                     step: "3",
                     title: "Secure Escrow",
                     icon: Shield,
-                    description:
-                      "Work with confidence using smart contract protection",
+                    description: "Work with confidence using smart contract protection",
                   },
                   {
                     step: "4",
@@ -370,18 +348,15 @@ export default function Home() {
                     style={{ animationDelay: `${index * 200}ms` }}
                     role="listitem"
                   >
-                    <div className="relative">
+                    <div className="relative mb-6">
                       <div className="w-16 h-16 bg-primary-gradient rounded-2xl flex items-center justify-center mx-auto shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
-                        <item.icon
-                          className="w-8 h-8 text-white"
-                          aria-hidden="true"
-                        />
+                        <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
                       </div>
                       <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-medium">
                         {item.step}
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       {item.title}
                     </h3>
                     <p className="sr-only">{item.description}</p>
@@ -389,7 +364,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="text-center animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
+              <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
                 <Button variant="secondary" size="lg">
                   Learn More
                   <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
