@@ -32,45 +32,46 @@ export function AccessibilityProvider({
 }: AccessibilityProviderProps) {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
-  const [fontSize, setFontSize] = useState<"normal" | "large" | "larger">(
-    "normal",
-  );
+  const [fontSize, setFontSize] = useState<"normal" | "large" | "larger">("normal");
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
+    setIsClient(true);
+    
+    // Only run browser-specific code on the client
+    if (typeof window !== 'undefined') {
+      // Check for reduced motion preference
+      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      setReducedMotion(mediaQuery.matches);
 
-    const handleChange = (e: MediaQueryListEvent) => {
-      setReducedMotion(e.matches);
-    };
+      const handleChange = (e: MediaQueryListEvent) => {
+        setReducedMotion(e.matches);
+      };
 
-    mediaQuery.addEventListener("change", handleChange);
+      mediaQuery.addEventListener("change", handleChange);
 
-    // Check for high contrast preference
-    const contrastQuery = window.matchMedia("(prefers-contrast: high)");
-    setHighContrast(contrastQuery.matches);
+      // Check for high contrast preference
+      const contrastQuery = window.matchMedia("(prefers-contrast: high)");
+      setHighContrast(contrastQuery.matches);
 
-    const handleContrastChange = (e: MediaQueryListEvent) => {
-      setHighContrast(e.matches);
-    };
+      const handleContrastChange = (e: MediaQueryListEvent) => {
+        setHighContrast(e.matches);
+      };
 
-    contrastQuery.addEventListener("change", handleContrastChange);
+      contrastQuery.addEventListener("change", handleContrastChange);
 
-    // Load saved font size preference
-    const savedFontSize = localStorage.getItem("fontSize") as
-      | "normal"
-      | "large"
-      | "larger";
-    if (savedFontSize) {
-      setFontSize(savedFontSize);
-      document.documentElement.style.fontSize = getFontSizeValue(savedFontSize);
+      // Load saved font size preference
+      const savedFontSize = localStorage.getItem("fontSize") as "normal" | "large" | "larger";
+      if (savedFontSize) {
+        setFontSize(savedFontSize);
+        document.documentElement.style.fontSize = getFontSizeValue(savedFontSize);
+      }
+
+      return () => {
+        mediaQuery.removeEventListener("change", handleChange);
+        contrastQuery.removeEventListener("change", handleContrastChange);
+      };
     }
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-      contrastQuery.removeEventListener("change", handleContrastChange);
-    };
   }, []);
 
   const getFontSizeValue = (size: "normal" | "large" | "larger") => {
@@ -85,6 +86,8 @@ export function AccessibilityProvider({
   };
 
   const announceMessage = (message: string) => {
+    if (typeof window === 'undefined') return;
+    
     // Create a live region for screen reader announcements
     const announcement = document.createElement("div");
     announcement.setAttribute("aria-live", "polite");
