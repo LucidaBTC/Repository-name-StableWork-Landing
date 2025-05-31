@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
@@ -87,8 +86,6 @@ export default function Home() {
     <>
       <PerformanceInit />
       <div className="min-h-screen">
-        <Header />
-
         <main role="main" aria-label="Main content">
           {/* Hero Section */}
           <section
