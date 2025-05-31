@@ -6,6 +6,7 @@ import { Button } from "@/components/common/Button";
 import { StickyCTA } from "@/components/common/StickyCTA";
 import { GlobeBackground } from "@/components/common/GlobeBackground";
 import { CTASection } from "@/components/common/CTASection";
+import { HowItWorks } from "@/components/common/HowItWorks";
 import { PerformanceInit } from "./performance-init";
 import {
   Globe,
@@ -295,127 +296,10 @@ export default function Home() {
             </Container>
           </section>
 
-          {/* How It Works Preview */}
-          <section
-            className="py-20 sm:py-32 bg-secondary-900"
-            aria-labelledby="how-it-works-heading"
-          >
-            <Container>
-              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
-                <h2
-                  id="how-it-works-heading"
-                  className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
-                >
-                  How it works
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-secondary-300">
-                  Get started in minutes, not days
-                </p>
-              </div>
+          {/* How It Works Section */}
+          <HowItWorks />
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8" role="list">
-                {[
-                  {
-                    step: "1",
-                    title: "Create Profile",
-                    icon: Users,
-                    description: "Set up your freelancer profile with skills and portfolio",
-                  },
-                  {
-                    step: "2",
-                    title: "Find Jobs",
-                    icon: Globe,
-                    description: "Browse and apply to jobs from clients worldwide",
-                  },
-                  {
-                    step: "3",
-                    title: "Secure Escrow",
-                    icon: Shield,
-                    description: "Work with confidence using smart contract protection",
-                  },
-                  {
-                    step: "4",
-                    title: "Get Paid",
-                    icon: Zap,
-                    description: "Receive instant payments in stablecoins",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={item.step}
-                    className="text-center group animate-fade-in-up"
-                    style={{ animationDelay: `${index * 200}ms` }}
-                    role="listitem"
-                  >
-                    <div className="relative mb-6">
-                      <div className="w-16 h-16 bg-primary-gradient rounded-2xl flex items-center justify-center mx-auto shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
-                        <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-medium">
-                        {item.step}
-                      </div>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="sr-only">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
-                <Button variant="secondary" size="lg">
-                  Learn More
-                  <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-                </Button>
-              </div>
-            </Container>
-          </section>
-
-          {/* First CTA Section */}
-          <CTASection />
-
-          {/* Features Section */}
-          <section
-            className="py-20 sm:py-32 bg-gradient-to-br from-white to-secondary-50/50"
-            aria-labelledby="features-heading"
-          >
-            <Container>
-              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
-                <h2
-                  id="features-heading"
-                  className="text-3xl font-bold tracking-tight text-secondary-900 sm:text-4xl"
-                >
-                  Why choose StableWork?
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-secondary-600">
-                  The future of freelance work is here. Join the revolution.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
-                {features.map((feature, index) => (
-                  <article
-                    key={feature.title}
-                    className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all duration-300 border border-secondary-200/50 hover:border-primary-200 hover:-translate-y-2 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                    role="listitem"
-                  >
-                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
-                      <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-secondary-900 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-secondary-600 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </Container>
-          </section>
-
-          {/* Second CTA Section */}
+          {/* CTA Section */}
           <CTASection />
         </main>
 
