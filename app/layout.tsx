@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AccessibilityProvider } from "@/components/common/AccessibilityProvider";
 import { StickyCTA } from "@/components/common/StickyCTA";
+import { Navbar } from "@/components/common/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -141,6 +142,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased`}
         suppressHydrationWarning
       >
+        <Navbar />
         <AccessibilityProvider>
           <div id="skip-to-content" className="sr-only">
             <a
