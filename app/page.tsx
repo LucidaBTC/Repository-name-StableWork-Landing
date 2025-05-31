@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { TrustSection } from "@/components/common/TrustSection";
 import { FreelancerUseCases } from "@/components/common/FreelancerUseCases";
+import { FreelancerPersonaGrid } from "@/components/common/FreelancerPersonaGrid";
 
 const features = [
   {
@@ -205,6 +206,9 @@ export default function Home() {
 
           {/* Trust Section */}
           <TrustSection />
+
+          {/* Freelancer Persona Grid */}
+          <FreelancerPersonaGrid />
 
           {/* Freelancer Use Cases */}
           <FreelancerUseCases />
