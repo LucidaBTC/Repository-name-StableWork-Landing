@@ -45,36 +45,7 @@ const features = [
   },
 ];
 
-const trustLogos = [
-  { name: "USDC", logo: "🪙", description: "USD Coin stablecoin support" },
-  { name: "DAI", logo: "💰", description: "DAI stablecoin support" },
-  { name: "MetaMask", logo: "🦊", description: "MetaMask wallet integration" },
-  { name: "Coinbase", logo: "🔷", description: "Coinbase wallet support" },
-  { name: "Chainlink", logo: "🔗", description: "Chainlink price feeds" },
-];
-
-const stats = [
-  {
-    value: "10,000+",
-    label: "Active Freelancers",
-    description: "Verified freelancers worldwide",
-  },
-  {
-    value: "$2.5M+",
-    label: "Paid Out",
-    description: "Total payments processed",
-  },
-  {
-    value: "50+",
-    label: "Countries",
-    description: "Global reach and coverage",
-  },
-  {
-    value: "4.9/5",
-    label: "Average Rating",
-    description: "User satisfaction score",
-  },
-];
+// 🚫 Removed placeholder Web3 infrastructure & stats (non-live)
 
 const miniHowItWorks = [
   { step: "1️⃣", title: "Create a profile", icon: UserPlus },
@@ -182,75 +153,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </Container>
-          </section>
-
-          {/* Trust Strip */}
-          <section
-            className="py-12 bg-secondary-900"
-            aria-labelledby="trust-heading"
-          >
-            <Container>
-              <div className="mx-auto max-w-7xl animate-fade-in">
-                <h2
-                  id="trust-heading"
-                  className="text-center text-sm font-semibold text-secondary-300 mb-8"
-                >
-                  POWERED BY LEADING WEB3 INFRASTRUCTURE
-                </h2>
-                <div
-                  className="flex flex-wrap items-center justify-center gap-8 lg:gap-12"
-                  role="list"
-                >
-                  {trustLogos.map((item, index) => (
-                    <div
-                      key={item.name}
-                      className="flex items-center space-x-3 text-secondary-300 hover:text-white transition-colors group hover:scale-105 animate-fade-in-up"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                      role="listitem"
-                      title={item.description}
-                    >
-                      <span className="text-2xl group-hover:scale-110 transition-transform" aria-hidden="true">
-                        {item.logo}
-                      </span>
-                      <span className="text-lg font-semibold">{item.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Container>
-          </section>
-
-          {/* Stats Section */}
-          <section
-            className="py-16 bg-secondary-900"
-            aria-labelledby="stats-heading"
-          >
-            <Container>
-              <h2 id="stats-heading" className="sr-only">
-                Platform Statistics
-              </h2>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8" role="list">
-                {stats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className="text-center animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                    role="listitem"
-                  >
-                    <div
-                      className="text-3xl lg:text-4xl font-bold text-white mb-2"
-                      aria-label={`${stat.value} ${stat.label}`}
-                    >
-                      {stat.value}
-                    </div>
-                    <div className="text-secondary-400 text-sm lg:text-base">
-                      {stat.label}
-                    </div>
-                    <div className="sr-only">{stat.description}</div>
-                  </div>
-                ))}
               </div>
             </Container>
           </section>
