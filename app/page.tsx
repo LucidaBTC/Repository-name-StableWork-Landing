@@ -5,6 +5,7 @@ import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { StickyCTA } from "@/components/common/StickyCTA";
 import { GlobeBackground } from "@/components/common/GlobeBackground";
+import { CTASection } from "@/components/common/CTASection";
 import { PerformanceInit } from "./performance-init";
 import {
   Globe,
@@ -369,6 +370,53 @@ export default function Home() {
               </div>
             </Container>
           </section>
+
+          {/* First CTA Section */}
+          <CTASection />
+
+          {/* Features Section */}
+          <section
+            className="py-20 sm:py-32 bg-gradient-to-br from-white to-secondary-50/50"
+            aria-labelledby="features-heading"
+          >
+            <Container>
+              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
+                <h2
+                  id="features-heading"
+                  className="text-3xl font-bold tracking-tight text-secondary-900 sm:text-4xl"
+                >
+                  Why choose StableWork?
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-secondary-600">
+                  The future of freelance work is here. Join the revolution.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+                {features.map((feature, index) => (
+                  <article
+                    key={feature.title}
+                    className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-soft hover:shadow-medium transition-all duration-300 border border-secondary-200/50 hover:border-primary-200 hover:-translate-y-2 animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                    role="listitem"
+                  >
+                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
+                      <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-secondary-900 mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-secondary-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </Container>
+          </section>
+
+          {/* Second CTA Section */}
+          <CTASection />
         </main>
 
         <Footer />
