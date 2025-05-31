@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 
@@ -16,6 +17,8 @@ const navigation = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   // Close menu on escape key
   useEffect(() => {
@@ -43,87 +46,112 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-secondary-200/50">
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isHomePage 
+          ? "bg-transparent" 
+          : "bg-white/80 backdrop-blur-xl border-b border-secondary-200/50 shadow-soft"
+      }`}
+    >
       <Container>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.svg"
               alt="StableWork"
               width={32}
               height={32}
-              className="h-8 w-auto"
-              priority
+              className="w-8 h-8"
             />
-            <span className="ml-2 text-xl font-semibold text-secondary-900">
+            <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
               StableWork
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  pathname === item.href
+                    ? "text-primary-600"
+                    : "text-secondary-600 hover:text-secondary-900"
+                }`}
               >
                 {item.name}
               </Link>
             ))}
-          </div>
+          </nav>
 
           {/* Mobile menu button */}
           <button
-            type="button"
-            className="menu-button md:hidden inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+            className="menu-button md:hidden p-2 text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-lg transition-colors active:scale-95"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
-            aria-label="Toggle menu"
+            aria-controls="mobile-menu"
           >
-            <span className="sr-only">Open main menu</span>
-            {isOpen ? (
-              <X className="block h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="block h-6 w-6" aria-hidden="true" />
-            )}
+            <div
+              className={`transition-transform duration-200 ${isOpen ? "rotate-90" : "rotate-0"}`}
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </div>
           </button>
         </div>
-      </Container>
 
-      {/* Mobile menu */}
-      <div
-        className={`mobile-menu md:hidden fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-secondary-200">
-            <span className="text-lg font-semibold text-secondary-900">Menu</span>
-            <button
-              type="button"
-              className="p-2 rounded-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="flex-1 px-4 py-6 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 text-base font-medium text-secondary-600 hover:text-secondary-900 hover:bg-secondary-50 rounded-md"
+        {/* Mobile Navigation */}
+        <div
+          id="mobile-menu"
+          className={`mobile-menu md:hidden fixed inset-y-0 right-0 w-full max-w-xs bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-8">
+              <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+                <Image
+                  src="/logo.svg"
+                  alt="StableWork"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+                <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                  StableWork
+                </span>
+              </Link>
+              <button
+                className="p-2 text-secondary-700 hover:text-secondary-900 hover:bg-secondary-100 rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                {item.name}
-              </Link>
-            ))}
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <nav className="space-y-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`block text-base font-medium transition-colors ${
+                    pathname === item.href
+                      ? "text-primary-600"
+                      : "text-secondary-600 hover:text-secondary-900"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
-      </div>
-    </nav>
+      </Container>
+    </header>
   );
 } 
