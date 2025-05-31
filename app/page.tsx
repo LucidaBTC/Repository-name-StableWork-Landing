@@ -20,6 +20,8 @@ import {
   Lock,
   DollarSign,
 } from "lucide-react";
+import { TrustSection } from "@/components/common/TrustSection";
+import { FreelancerUseCases } from "@/components/common/FreelancerUseCases";
 
 const features = [
   {
@@ -200,6 +202,12 @@ export default function Home() {
 
           {/* How It Works Section */}
           <HowItWorks />
+
+          {/* Trust Section */}
+          <TrustSection />
+
+          {/* Freelancer Use Cases */}
+          <FreelancerUseCases />
 
           {/* CTA Section */}
           <CTASection />
