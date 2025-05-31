@@ -80,7 +80,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    // Remove placeholder verification code until you have the real one
+    // google: "your-google-verification-code",
   },
 };
 
@@ -93,15 +94,17 @@ const jsonLd = {
   url: "https://stablework.io",
   logo: "https://stablework.io/logo.png",
   sameAs: [
-    "https://twitter.com/stablework",
-    "https://linkedin.com/company/stablework",
-    "https://github.com/stablework",
+    // Remove placeholder social links until you have real ones
+    // "https://twitter.com/stablework",
+    // "https://linkedin.com/company/stablework",
+    // "https://github.com/stablework",
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+1-555-0123",
+    // Remove placeholder phone until you have a real one
+    // telephone: "+1-555-0123",
     contactType: "customer service",
-    availableLanguage: ["English", "Spanish", "French", "German"],
+    availableLanguage: ["English"],
   },
   address: {
     "@type": "PostalAddress",

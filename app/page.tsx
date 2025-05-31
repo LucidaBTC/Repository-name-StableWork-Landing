@@ -5,6 +5,7 @@ import { Footer } from "@/components/common/Footer";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { StickyCTA } from "@/components/common/StickyCTA";
+import { GlobeBackground } from "@/components/common/GlobeBackground";
 import { PerformanceInit } from "./performance-init";
 import {
   Globe,
@@ -12,10 +13,6 @@ import {
   Zap,
   Users,
   ArrowRight,
-  CheckCircle,
-  Wallet,
-  TrendingUp,
-  Clock,
   Star,
   UserPlus,
   Briefcase,
@@ -89,35 +86,22 @@ export default function Home() {
   return (
     <>
       <PerformanceInit />
-      <div className="min-h-screen bg-gradient-to-br from-white via-primary-50/30 to-accent-50/20">
+      <div className="min-h-screen">
         <Header />
 
         <main role="main" aria-label="Main content">
           {/* Hero Section */}
           <section
-            className="relative overflow-hidden py-20 sm:py-32"
+            className="relative overflow-hidden py-20 sm:py-32 bg-gradient-to-br from-[#0A1F44] via-[#1F3B7B] to-[#3C4CE5]"
             aria-labelledby="hero-heading"
           >
-            {/* Background Elements */}
-            <div
-              className="absolute inset-0 bg-gradient-to-br from-primary-100/20 via-transparent to-accent-100/20"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl animate-float"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-200/20 rounded-full blur-3xl animate-float"
-              style={{ animationDelay: "1s" }}
-              aria-hidden="true"
-            />
+            <GlobeBackground />
 
             <Container>
               <div className="relative z-10 mx-auto max-w-4xl text-center">
                 <div className="animate-fade-in-up">
                   <div className="mb-6">
-                    <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-secondary-700 border border-secondary-200/50 shadow-soft animate-scale-in">
+                    <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white border border-white/10 shadow-soft animate-scale-in">
                       <Star
                         className="w-4 h-4 text-yellow-500"
                         aria-hidden="true"
@@ -128,23 +112,23 @@ export default function Home() {
 
                   <h1
                     id="hero-heading"
-                    className="text-4xl font-bold tracking-tight text-secondary-900 sm:text-6xl lg:text-7xl animate-fade-in-up"
+                    className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl animate-fade-in-up"
                     style={{ animationDelay: "0.3s" }}
                   >
                     Freelance{" "}
-                    <span className="bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                       worldwide
                     </span>
                     . <br />
                     Get paid in{" "}
-                    <span className="bg-gradient-to-r from-accent-600 to-primary-600 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                       stablecoins
                     </span>
                     .
                   </h1>
 
                   <p
-                    className="mt-6 text-lg leading-8 text-secondary-600 max-w-2xl mx-auto animate-fade-in-up"
+                    className="mt-6 text-lg leading-8 text-white/80 max-w-2xl mx-auto animate-fade-in-up"
                     style={{ animationDelay: "0.5s" }}
                   >
                     Instant, borderless payouts in USDC or DAI — no banks, no
@@ -158,7 +142,7 @@ export default function Home() {
                     <Button
                       variant="gradient"
                       size="xl"
-                      className="group"
+                      className="group bg-white text-[#0A1F44] hover:bg-white/90"
                       aria-describedby="join-waitlist-description"
                     >
                       <Users

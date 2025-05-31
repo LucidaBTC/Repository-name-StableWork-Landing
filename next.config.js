@@ -1,3 +1,10 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development'
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Performance optimizations
@@ -47,29 +54,37 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: '/:path*',
         headers: [
           {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
           },
           {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains'
           },
           {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
           },
           {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
           },
           {
-            key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
           },
-        ],
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self'; object-src 'none'; frame-ancestors 'self';"
+          }
+        ]
       },
       {
         source: "/fonts/(.*)",
@@ -117,4 +132,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);

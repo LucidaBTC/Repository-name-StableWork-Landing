@@ -82,6 +82,7 @@ module.exports = {
         "pulse-slow": "pulse 3s ease-in-out infinite",
         "gradient-shift": "gradientShift 8s ease-in-out infinite",
         spin: "spin 1s linear infinite",
+        "nodePulse": "nodePulse 6s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -123,6 +124,10 @@ module.exports = {
         spin: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        nodePulse: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "1" },
         },
       },
       boxShadow: {
