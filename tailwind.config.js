@@ -10,6 +10,15 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            p: {
+              lineHeight: '1.75'
+            }
+          }
+        }
+      },
       colors: {
         primary: {
           50: "#f0f9ff",
@@ -159,6 +168,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     // Custom plugin for accessibility utilities
     function ({ addUtilities, theme }) {
       const newUtilities = {

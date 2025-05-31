@@ -92,15 +92,15 @@ export default function Home() {
         <main role="main" aria-label="Main content">
           {/* Hero Section */}
           <section
-            className="relative overflow-hidden py-20 sm:py-32 bg-gradient-to-br from-[#0A1F44] via-[#1F3B7B] to-[#3C4CE5]"
+            className="relative overflow-hidden py-20 lg:py-28 space-y-6 bg-gradient-to-br from-[#0A1F44] via-[#1F3B7B] to-[#3C4CE5]"
             aria-labelledby="hero-heading"
           >
             <GlobeBackground />
 
             <Container>
-              <div className="relative z-10 mx-auto max-w-4xl text-center">
+              <div className="relative z-10 mx-auto max-w-3xl text-center">
                 <div className="animate-fade-in-up">
-                  <div className="mb-6">
+                  <div>
                     <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white border border-white/10 shadow-soft animate-scale-in">
                       <Star
                         className="w-4 h-4 text-yellow-500"
@@ -128,7 +128,7 @@ export default function Home() {
                   </h1>
 
                   <p
-                    className="mt-6 text-lg leading-8 text-white/80 max-w-2xl mx-auto animate-fade-in-up"
+                    className="prose text-lg leading-8 text-white/80 mx-auto animate-fade-in-up"
                     style={{ animationDelay: "0.5s" }}
                   >
                     Instant, borderless payouts in USDC or DAI — no banks, no
@@ -136,7 +136,7 @@ export default function Home() {
                   </p>
 
                   <div
-                    className="mt-10 animate-fade-in-up"
+                    className="animate-fade-in-up"
                     style={{ animationDelay: "0.7s" }}
                   >
                     <Button
@@ -166,7 +166,7 @@ export default function Home() {
 
           {/* Mini How It Works */}
           <section
-            className="py-12 bg-white/50 backdrop-blur-sm border-y border-secondary-200/50"
+            className="py-20 lg:py-28 space-y-6 bg-white/50 backdrop-blur-sm border-y border-secondary-200/50"
             aria-labelledby="mini-how-it-works-heading"
           >
             <Container>
@@ -181,7 +181,7 @@ export default function Home() {
                       className="text-center group animate-fade-in-up"
                       style={{ animationDelay: `${index * 150}ms` }}
                     >
-                      <div className="flex items-center justify-center mb-3">
+                      <div className="flex items-center justify-center">
                         <span className="text-2xl mr-2" aria-hidden="true">
                           {item.step}
                         </span>
@@ -202,14 +202,14 @@ export default function Home() {
 
           {/* Trust Strip */}
           <section
-            className="py-12 bg-secondary-900"
+            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
             aria-labelledby="trust-heading"
           >
             <Container>
               <div className="mx-auto max-w-7xl animate-fade-in">
                 <h2
                   id="trust-heading"
-                  className="text-center text-sm font-semibold text-secondary-300 mb-8"
+                  className="text-center text-sm font-semibold text-secondary-300"
                 >
                   POWERED BY LEADING WEB3 INFRASTRUCTURE
                 </h2>
@@ -241,17 +241,14 @@ export default function Home() {
 
           {/* Stats Section */}
           <section
-            className="py-16 bg-secondary-900"
+            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
             aria-labelledby="stats-heading"
           >
             <Container>
               <h2 id="stats-heading" className="sr-only">
                 Platform Statistics
               </h2>
-              <div
-                className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-                role="list"
-              >
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8" role="list">
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
@@ -260,7 +257,7 @@ export default function Home() {
                     role="listitem"
                   >
                     <div
-                      className="text-3xl lg:text-4xl font-bold text-white mb-2"
+                      className="text-3xl lg:text-4xl font-bold text-white"
                       aria-label={`${stat.value} ${stat.label}`}
                     >
                       {stat.value}
@@ -277,26 +274,23 @@ export default function Home() {
 
           {/* Features Section */}
           <section
-            className="py-20 sm:py-32 bg-gradient-to-br from-white to-secondary-50/50"
+            className="py-20 lg:py-28 space-y-6 bg-gradient-to-br from-white to-secondary-50/50"
             aria-labelledby="features-heading"
           >
             <Container>
-              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
+              <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
                 <h2
                   id="features-heading"
                   className="text-3xl font-bold tracking-tight text-secondary-900 sm:text-4xl"
                 >
                   Why choose StableWork?
                 </h2>
-                <p className="mt-6 text-lg leading-8 text-secondary-600">
+                <p className="prose mx-auto text-lg leading-8 text-secondary-600">
                   The future of freelance work is here. Join the revolution.
                 </p>
               </div>
 
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                role="list"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
                 {features.map((feature, index) => (
                   <article
                     key={feature.title}
@@ -304,16 +298,16 @@ export default function Home() {
                     style={{ animationDelay: `${index * 100}ms` }}
                     role="listitem"
                   >
-                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center mb-4 shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
+                    <div className="w-12 h-12 bg-primary-gradient rounded-xl flex items-center justify-center shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
                       <feature.icon
                         className="w-6 h-6 text-white"
                         aria-hidden="true"
                       />
                     </div>
-                    <h3 className="text-lg font-semibold text-secondary-900 mb-2">
+                    <h3 className="text-lg font-semibold text-secondary-900">
                       {feature.title}
                     </h3>
-                    <p className="text-secondary-600 leading-relaxed">
+                    <p className="prose text-secondary-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </article>
@@ -324,26 +318,23 @@ export default function Home() {
 
           {/* How It Works Preview */}
           <section
-            className="py-20 sm:py-32 bg-secondary-900"
+            className="py-20 lg:py-28 space-y-6 bg-secondary-900"
             aria-labelledby="how-it-works-heading"
           >
             <Container>
-              <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-in-up">
+              <div className="mx-auto max-w-3xl text-center animate-fade-in-up">
                 <h2
                   id="how-it-works-heading"
                   className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
                   How it works
                 </h2>
-                <p className="mt-6 text-lg leading-8 text-secondary-300">
+                <p className="prose mx-auto text-lg leading-8 text-secondary-300">
                   Get started in minutes, not days
                 </p>
               </div>
 
-              <div
-                className="grid grid-cols-1 md:grid-cols-4 gap-8"
-                role="list"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8" role="list">
                 {[
                   {
                     step: "1",
@@ -379,7 +370,7 @@ export default function Home() {
                     style={{ animationDelay: `${index * 200}ms` }}
                     role="listitem"
                   >
-                    <div className="relative mb-6">
+                    <div className="relative">
                       <div className="w-16 h-16 bg-primary-gradient rounded-2xl flex items-center justify-center mx-auto shadow-glow group-hover:shadow-glow-purple transition-all duration-300">
                         <item.icon
                           className="w-8 h-8 text-white"
@@ -390,7 +381,7 @@ export default function Home() {
                         {item.step}
                       </div>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="text-lg font-semibold text-white">
                       {item.title}
                     </h3>
                     <p className="sr-only">{item.description}</p>
@@ -398,10 +389,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div
-                className="text-center mt-12 animate-fade-in-up"
-                style={{ animationDelay: "0.8s" }}
-              >
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
                 <Button variant="secondary" size="lg">
                   Learn More
                   <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
