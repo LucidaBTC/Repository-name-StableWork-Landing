@@ -128,7 +128,7 @@ export default function Home() {
                   </h1>
 
                   <p
-                    className="prose text-lg leading-8 text-white/80 mx-auto animate-fade-in-up"
+                    className="max-w-3xl text-lg leading-relaxed text-white/80 mx-auto animate-fade-in-up"
                     style={{ animationDelay: "0.5s" }}
                   >
                     Instant, borderless payouts in USDC or DAI — no banks, no
@@ -285,7 +285,7 @@ export default function Home() {
                 >
                   Why choose StableWork?
                 </h2>
-                <p className="prose mx-auto text-lg leading-8 text-secondary-600">
+                <p className="max-w-3xl text-lg leading-relaxed text-secondary-600 mx-auto">
                   The future of freelance work is here. Join the revolution.
                 </p>
               </div>
@@ -307,7 +307,7 @@ export default function Home() {
                     <h3 className="text-lg font-semibold text-secondary-900">
                       {feature.title}
                     </h3>
-                    <p className="prose text-secondary-600 leading-relaxed">
+                    <p className="max-w-3xl text-lg leading-relaxed text-secondary-600">
                       {feature.description}
                     </p>
                   </article>
@@ -329,7 +329,7 @@ export default function Home() {
                 >
                   How it works
                 </h2>
-                <p className="prose mx-auto text-lg leading-8 text-secondary-300">
+                <p className="max-w-3xl text-lg leading-relaxed text-secondary-300 mx-auto">
                   Get started in minutes, not days
                 </p>
               </div>

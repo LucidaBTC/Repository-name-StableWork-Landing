@@ -168,7 +168,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    // require('@tailwindcss/typography'), // Temporarily disabled
     // Custom plugin for accessibility utilities
     function ({ addUtilities, theme }) {
       const newUtilities = {
