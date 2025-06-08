@@ -24,6 +24,7 @@ import { TrustSection } from "@/components/common/TrustSection";
 import { FreelancerUseCases } from "@/components/common/FreelancerUseCases";
 import { FreelancerPersonaGrid } from "@/components/common/FreelancerPersonaGrid";
 import { JobCardRow } from "@/components/common/JobCardRow";
+import { WhyStableWork } from "@/components/common/WhyStableWork";
 
 const features = [
   {
@@ -145,6 +146,9 @@ export default function Home() {
               </div>
             </Container>
           </section>
+
+          {/* Why StableWork Section */}
+          <WhyStableWork />
 
           {/* Mini How It Works */}
           <section

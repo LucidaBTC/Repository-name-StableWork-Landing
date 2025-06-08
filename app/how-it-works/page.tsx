@@ -139,7 +139,7 @@ export default function HowItWorks() {
               <p className="text-lg text-secondary-300 mb-8">
                 Create your wallet in seconds with Magic.link.
               </p>
-              <Button variant="secondary" size="lg">
+              <Button variant="outline" size="lg">
                 <Zap className="w-5 h-5 mr-2" />
                 Set Up Wallet
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -191,7 +191,7 @@ export default function HowItWorks() {
                 Join thousands of freelancers earning in stablecoins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg">
+                <Button variant="outline" size="lg">
                   <Users className="w-5 h-5 mr-2" />
                   Join Waitlist
                 </Button>

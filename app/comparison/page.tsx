@@ -289,7 +289,7 @@ export default function Comparison() {
                 Join thousands of freelancers who've made the switch to instant,
                 fee-free stablecoin payments.
               </p>
-              <Button variant="secondary" size="lg" className="group">
+              <Button variant="outline" size="lg" className="group">
                 <Users className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" />
                 Join Waitlist
               </Button>

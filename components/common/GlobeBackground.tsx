@@ -1,73 +1,104 @@
-import React from 'react';
+"use client";
 
-const nodes = [
-  { cx: "20%", cy: "30%" },
-  { cx: "40%", cy: "60%" },
-  { cx: "60%", cy: "20%" },
-  { cx: "75%", cy: "50%" },
-  { cx: "80%", cy: "70%" },
-  { cx: "30%", cy: "80%" },
-];
+import { useEffect, useRef } from "react";
 
 export function GlobeBackground() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <svg
-        className="absolute w-full h-full opacity-[0.07]"
-        viewBox="0 0 1000 1000"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Globe outline */}
-        <circle
-          cx="500"
-          cy="500"
-          r="400"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="text-white"
-        />
-        
-        {/* Latitude lines */}
-        {[-30, -15, 0, 15, 30].map((angle) => (
-          <ellipse
-            key={angle}
-            cx="500"
-            cy="500"
-            rx="400"
-            ry={400 * Math.cos((angle * Math.PI) / 180)}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            className="text-white/50"
-          />
-        ))}
-        
-        {/* Longitude lines */}
-        {[-60, -30, 0, 30, 60].map((angle) => (
-          <path
-            key={angle}
-            d={`M 500 100 Q ${500 + 400 * Math.sin((angle * Math.PI) / 180)} 500 500 900`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            className="text-white/50"
-          />
-        ))}
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-        {/* Pulsing nodes */}
-        {nodes.map((node, index) => (
-          <circle
-            key={index}
-            cx={node.cx}
-            cy={node.cy}
-            r="4"
-            fill="currentColor"
-            className="text-white animate-nodePulse"
-            style={{ animationDelay: `${index * 1}s` }}
-          />
-        ))}
-      </svg>
-    </div>
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Draw globe
+    const drawGlobe = () => {
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = Math.min(canvas.width, canvas.height) * 0.4;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw globe outline
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = "#0EA5E9";
+      ctx.globalAlpha = 0.25;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Draw grid lines
+      const gridLines = 12;
+      for (let i = 0; i < gridLines; i++) {
+        const angle = (i * Math.PI) / gridLines;
+        
+        // Horizontal lines
+        ctx.beginPath();
+        ctx.ellipse(
+          centerX,
+          centerY,
+          radius * Math.cos(angle),
+          radius * Math.sin(angle),
+          0,
+          0,
+          Math.PI * 2
+        );
+        ctx.stroke();
+
+        // Vertical lines
+        ctx.beginPath();
+        ctx.ellipse(
+          centerX,
+          centerY,
+          radius,
+          radius * Math.sin(angle),
+          Math.PI / 2,
+          0,
+          Math.PI * 2
+        );
+        ctx.stroke();
+      }
+
+      // Add subtle glow
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius + 2, 0, Math.PI * 2);
+      ctx.strokeStyle = "#0EA5E9";
+      ctx.globalAlpha = 0.1;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    };
+
+    drawGlobe();
+
+    // Animation
+    let rotation = 0;
+    const animate = () => {
+      rotation += 0.001;
+      drawGlobe();
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden="true"
+    />
   );
 } 

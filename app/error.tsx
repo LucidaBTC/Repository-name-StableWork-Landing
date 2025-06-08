@@ -33,11 +33,11 @@ export default function Error({
           <div className="space-y-4">
             <Button
               onClick={reset}
-              variant="primary"
+              variant="gradient"
               className="w-full sm:w-auto"
             >
               <RefreshCw className="w-5 h-5 mr-2" />
-              Try again
+              Try Again
             </Button>
             <div>
               <Button

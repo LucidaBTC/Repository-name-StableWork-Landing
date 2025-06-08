@@ -14,6 +14,8 @@ const featuredJobs = [
       flag: "🇰🇪",
     },
     rating: 4.8,
+    paymentType: "USDC" as const,
+    duration: "1 Week",
   },
   {
     title: "Smart Contract Development",
@@ -25,6 +27,8 @@ const featuredJobs = [
       flag: "🇳🇬",
     },
     rating: 4.9,
+    paymentType: "USDC" as const,
+    duration: "2 Weeks",
   },
   {
     title: "Social Media Campaign",
@@ -36,6 +40,8 @@ const featuredJobs = [
       flag: "🇧🇷",
     },
     rating: 4.7,
+    paymentType: "DAI" as const,
+    duration: "1 Month",
   },
 ];
 

@@ -215,12 +215,11 @@ export default function Jobs() {
 
                       {/* Apply Button */}
                       <Button
-                        variant="primary"
+                        variant="gradient"
                         size="sm"
                         className="w-full group-hover:scale-105 transition-transform"
                       >
-                        Apply Now
-                        <TrendingUp className="w-4 h-4 ml-2" />
+                        Apply
                       </Button>
 
                       {/* Hover Gradient Overlay */}

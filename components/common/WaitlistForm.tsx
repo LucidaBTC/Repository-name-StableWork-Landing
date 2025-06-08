@@ -73,7 +73,7 @@ export function WaitlistForm() {
           Thanks for joining. We'll notify you when StableWork launches.
         </p>
         <Button
-          variant="secondary"
+          variant="outline"
           onClick={() => setIsSuccess(false)}
           className="mt-4"
         >
