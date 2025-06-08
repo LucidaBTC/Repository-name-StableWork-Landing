@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "./Button";
 import { Container } from "./Container";
 import { useState } from "react";
-import { Menu, X, Wallet, Globe, Plus } from "lucide-react";
+import { Menu, X, Wallet, Globe, Plus, Users } from "lucide-react";
 
 const navigation = [
   { name: "How It Works", href: "/how-it-works" },
@@ -63,7 +63,7 @@ export function Header() {
               <Plus className="w-4 h-4 mr-2" />
               Post a Job
             </Button>
-            <Button variant="gradient" size="sm" className="group">
+            <Button variant="primary" size="sm" className="group">
               <Wallet className="w-4 h-4 mr-2 group-hover:animate-bounce-gentle" />
               Join Waitlist
             </Button>
@@ -119,7 +119,7 @@ export function Header() {
                 <Plus className="w-4 h-4 mr-2" />
                 Post a Job
               </Button>
-              <Button variant="gradient" size="md" className="w-full group">
+              <Button variant="primary" size="md" className="w-full group">
                 <Wallet className="w-4 h-4 mr-2 group-hover:animate-bounce-gentle" />
                 Join Waitlist
               </Button>

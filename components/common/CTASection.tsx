@@ -19,7 +19,7 @@ export function CTASection() {
           <div className="mt-8">
             <Link href="/waitlist">
               <Button
-                variant="gradient"
+                variant="primary"
                 size="lg"
                 className="group bg-primary-gradient hover:opacity-90"
                 aria-describedby="cta-description"

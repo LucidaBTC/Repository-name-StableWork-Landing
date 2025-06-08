@@ -167,7 +167,7 @@ export default function JobDetail({ params }: { params: { slug: string } }) {
 
                   <div className="space-y-4 mb-6">
                     <Button
-                      variant="gradient"
+                      variant="primary"
                       size="lg"
                       className="w-full group"
                     >

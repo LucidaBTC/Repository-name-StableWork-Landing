@@ -66,11 +66,11 @@ export function JobCard({ title, budget, tags, location, rating, paymentType, du
       </div>
 
       <Button
-        variant="gradient"
+        variant="primary"
         size="sm"
         className="w-full group"
       >
-        Apply Now
+        Apply
       </Button>
     </div>
   );

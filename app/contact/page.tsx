@@ -80,7 +80,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button variant="gradient" size="lg" className="w-full group">
+                <Button variant="primary" size="lg" className="w-full group">
                   <Send className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" />
                   Send Message
                 </Button>
@@ -172,7 +172,7 @@ export default function Contact() {
                 you get back to work quickly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="gradient" size="lg">
+                <Button variant="primary" size="lg">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Live Chat
                 </Button>

@@ -139,7 +139,7 @@ export function WaitlistForm() {
 
       <Button
         type="submit"
-        variant="gradient"
+        variant="primary"
         className="w-full"
         disabled={isSubmitting}
       >
