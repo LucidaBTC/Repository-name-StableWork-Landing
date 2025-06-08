@@ -10,6 +10,7 @@ export function StickyCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Show CTA after scrolling past 100px
       setIsScrolled(window.scrollY > 100);
     };
 
@@ -73,7 +74,7 @@ export function StickyCTA() {
 
             <div className="space-y-2">
               <Button 
-                variant="gradient" 
+                variant="primary" 
                 size="sm" 
                 className="w-full group"
                 aria-describedby="waitlist-description"
@@ -111,7 +112,7 @@ export function StickyCTA() {
       >
         <div className="flex gap-3">
           <Button 
-            variant="gradient" 
+            variant="primary" 
             size="md" 
             className="flex-1 group"
             aria-describedby="mobile-waitlist-description"
