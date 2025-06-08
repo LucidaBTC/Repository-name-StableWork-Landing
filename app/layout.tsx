@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@/styles/design-tokens.css";
 import { AccessibilityProvider } from "@/components/common/AccessibilityProvider";
 import { StickyCTA } from "@/components/common/StickyCTA";
 import { Navbar } from "@/components/common/Navbar";
@@ -12,25 +13,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "StableWork - Freelance Worldwide, Get Paid in Stablecoins",
-    template: "%s | StableWork",
-  },
+  title: "StableWork - AI-Powered Workforce Management",
   description:
-    "Join 10,000+ freelancers earning in cryptocurrency. Get paid instantly in USDC or DAI with smart contract escrow protection. No borders, no delays.",
+    "Streamline your workforce management with StableWork's AI-powered platform. Automate scheduling, optimize staffing, and reduce costs.",
   keywords: [
-    "freelance",
-    "cryptocurrency",
-    "stablecoins",
-    "USDC",
-    "DAI",
-    "remote work",
-    "blockchain",
-    "smart contracts",
-    "escrow",
-    "global payments",
-    "web3 jobs",
-    "crypto freelancing",
+    "workforce management",
+    "AI scheduling",
+    "staff optimization",
+    "labor costs",
+    "automation",
   ],
   authors: [{ name: "StableWork Team" }],
   creator: "StableWork",
@@ -138,10 +129,7 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </head>
-      <body
-        className={`${inter.className} antialiased`}
-        suppressHydrationWarning
-      >
+      <body className="min-h-screen bg-white font-sans antialiased">
         <Navbar />
         <AccessibilityProvider>
           <div id="skip-to-content" className="sr-only">

@@ -80,14 +80,20 @@ export default function Home() {
                       <Star className="w-4 h-4 text-yellow-500" aria-hidden="true" />
                       <span>Trusted by 10,000+ freelancers worldwide</span>
                     </div>
-                    <div className="mt-3 flex items-center justify-center space-x-4 text-sm text-white/80">
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-sm text-white/80">
                       <div className="flex items-center">
                         <Shield className="w-4 h-4 mr-1" aria-hidden="true" />
                         <span>Smart Contract Escrow</span>
                       </div>
+                      <span className="hidden sm:inline-block text-white/30">|</span>
                       <div className="flex items-center">
                         <Lock className="w-4 h-4 mr-1" aria-hidden="true" />
                         <span>Secure Payments</span>
+                      </div>
+                      <span className="hidden sm:inline-block text-white/30">|</span>
+                      <div className="flex items-center">
+                        <Zap className="w-4 h-4 mr-1" aria-hidden="true" />
+                        <span>Instant Payouts</span>
                       </div>
                     </div>
                   </div>
@@ -121,9 +127,9 @@ export default function Home() {
                     style={{ animationDelay: "0.7s" }}
                   >
                     <Button
-                      variant="gradient"
-                      size="xl"
-                      className="group bg-white text-[#0A1F44] hover:bg-white/90 w-full sm:w-auto"
+                      variant="primary"
+                      size="lg"
+                      className="group bg-white text-[#0A1F44] hover:bg-white/90 w-full sm:w-auto focus-visible:ring-2 focus-visible:ring-primary-500"
                       aria-describedby="join-waitlist-description"
                     >
                       <Users className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" aria-hidden="true" />
@@ -132,8 +138,8 @@ export default function Home() {
                     </Button>
                     <Button
                       variant="outline"
-                      size="xl"
-                      className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10"
+                      size="lg"
+                      className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-primary-500"
                     >
                       <Briefcase className="w-5 h-5 mr-2" aria-hidden="true" />
                       Browse Jobs

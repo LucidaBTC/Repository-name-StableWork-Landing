@@ -215,7 +215,7 @@ export default function Jobs() {
 
                       {/* Apply Button */}
                       <Button
-                        variant="gradient"
+                        variant="primary"
                         size="sm"
                         className="w-full group-hover:scale-105 transition-transform"
                       >

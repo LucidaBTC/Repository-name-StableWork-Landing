@@ -19,7 +19,7 @@ export default function NotFound() {
               The page you're looking for doesn't exist or has been moved.
             </p>
             <Link href="/">
-              <Button variant="gradient" size="lg">
+              <Button variant="primary" size="lg">
                 Go Home
               </Button>
             </Link>

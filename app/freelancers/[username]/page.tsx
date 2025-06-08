@@ -187,7 +187,7 @@ export default function FreelancerProfile({
 
                   <div className="space-y-3 mb-6">
                     <Button
-                      variant="gradient"
+                      variant="primary"
                       size="lg"
                       className="w-full group"
                     >

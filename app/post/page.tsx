@@ -183,7 +183,7 @@ export default function PostJob() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="gradient" size="lg" className="flex-1 group">
+                <Button variant="primary" size="lg" className="flex-1 group">
                   <FileText className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" />
                   Post Job & Fund Escrow
                 </Button>

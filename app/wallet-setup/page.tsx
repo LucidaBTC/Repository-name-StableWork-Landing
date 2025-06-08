@@ -99,7 +99,7 @@ export default function WalletSetup() {
               </p>
 
               <Button
-                variant="gradient"
+                variant="primary"
                 size="lg"
                 className="w-full group mb-4"
               >
