@@ -7,33 +7,17 @@ interface AccessibilityContextType {
   highContrast: boolean;
   fontSize: "normal" | "large" | "larger";
   announceMessage: (message: string) => void;
+  isKeyboardUser: boolean;
 }
 
-const AccessibilityContext = createContext<
-  AccessibilityContextType | undefined
->(undefined);
+const AccessibilityContext = createContext<AccessibilityContextType | undefined>(undefined);
 
-export function useAccessibility() {
-  const context = useContext(AccessibilityContext);
-  if (!context) {
-    throw new Error(
-      "useAccessibility must be used within AccessibilityProvider",
-    );
-  }
-  return context;
-}
-
-interface AccessibilityProviderProps {
-  children: React.ReactNode;
-}
-
-export function AccessibilityProvider({
-  children,
-}: AccessibilityProviderProps) {
+export function AccessibilityProvider({ children }: { children: React.ReactNode }) {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
   const [fontSize, setFontSize] = useState<"normal" | "large" | "larger">("normal");
   const [isClient, setIsClient] = useState(false);
+  const [isKeyboardUser, setIsKeyboardUser] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -67,9 +51,22 @@ export function AccessibilityProvider({
         document.documentElement.style.fontSize = getFontSizeValue(savedFontSize);
       }
 
+      const handleKeyDown = () => {
+        setIsKeyboardUser(true);
+      };
+
+      const handleMouseDown = () => {
+        setIsKeyboardUser(false);
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener("mousedown", handleMouseDown);
+
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
         contrastQuery.removeEventListener("change", handleContrastChange);
+        window.removeEventListener("keydown", handleKeyDown);
+        window.removeEventListener("mousedown", handleMouseDown);
       };
     }
   }, []);
@@ -92,7 +89,7 @@ export function AccessibilityProvider({
     const announcement = document.createElement("div");
     announcement.setAttribute("aria-live", "polite");
     announcement.setAttribute("aria-atomic", "true");
-    announcement.className = "sr-only";
+    announcement.setAttribute("class", "sr-only");
     announcement.textContent = message;
 
     document.body.appendChild(announcement);
@@ -108,6 +105,7 @@ export function AccessibilityProvider({
     highContrast,
     fontSize,
     announceMessage,
+    isKeyboardUser,
   };
 
   return (
@@ -141,4 +139,12 @@ export function AccessibilityProvider({
       </div>
     </AccessibilityContext.Provider>
   );
+}
+
+export function useAccessibility() {
+  const context = useContext(AccessibilityContext);
+  if (context === undefined) {
+    throw new Error("useAccessibility must be used within an AccessibilityProvider");
+  }
+  return context;
 }
