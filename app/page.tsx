@@ -79,6 +79,16 @@ export default function Home() {
                       <Star className="w-4 h-4 text-yellow-500" aria-hidden="true" />
                       <span>Trusted by 10,000+ freelancers worldwide</span>
                     </div>
+                    <div className="mt-3 flex items-center justify-center space-x-4 text-sm text-white/80">
+                      <div className="flex items-center">
+                        <Shield className="w-4 h-4 mr-1" aria-hidden="true" />
+                        <span>Smart Contract Escrow</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Lock className="w-4 h-4 mr-1" aria-hidden="true" />
+                        <span>Secure Payments</span>
+                      </div>
+                    </div>
                   </div>
 
                   <h1
@@ -102,22 +112,30 @@ export default function Home() {
                     className="mt-6 text-lg leading-8 text-white/80 max-w-2xl mx-auto animate-fade-in-up"
                     style={{ animationDelay: "0.5s" }}
                   >
-                    Instant, borderless payouts in USDC or DAI — no banks, no delays.
+                    Join the future of work. Get instant, borderless payouts in USDC or DAI — no banks, no delays.
                   </p>
 
                   <div
-                    className="mt-10 animate-fade-in-up"
+                    className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
                     style={{ animationDelay: "0.7s" }}
                   >
                     <Button
                       variant="gradient"
                       size="xl"
-                      className="group bg-white text-[#0A1F44] hover:bg-white/90"
+                      className="group bg-white text-[#0A1F44] hover:bg-white/90 w-full sm:w-auto"
                       aria-describedby="join-waitlist-description"
                     >
                       <Users className="w-5 h-5 mr-2 group-hover:animate-bounce-gentle" aria-hidden="true" />
                       Join Waitlist
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="xl"
+                      className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10"
+                    >
+                      <Briefcase className="w-5 h-5 mr-2" aria-hidden="true" />
+                      Browse Jobs
                     </Button>
                     <span id="join-waitlist-description" className="sr-only">
                       Join our waitlist to be notified when StableWork launches

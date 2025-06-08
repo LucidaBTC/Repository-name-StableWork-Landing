@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "./Button";
-import { X, Wallet, Users } from "lucide-react";
+import { X, Wallet, Users, Shield, Lock } from "lucide-react";
 
 export function StickyCTA() {
   const [isVisible, setIsVisible] = useState(true);
@@ -36,6 +36,7 @@ export function StickyCTA() {
           <button
             onClick={() => setIsVisible(false)}
             className="absolute -top-2 -right-2 bg-secondary-100 hover:bg-secondary-200 rounded-full w-7 h-7 flex items-center justify-center text-secondary-500 hover:text-secondary-700 transition-colors shadow-soft hover:scale-110 active:scale-90"
+            aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
@@ -55,18 +56,46 @@ export function StickyCTA() {
               </div>
             </div>
 
+            <div className="flex items-center space-x-4 mb-4">
+              <div className="flex items-center text-xs text-secondary-600">
+                <Shield className="w-3 h-3 mr-1" />
+                <span>Smart Escrow</span>
+              </div>
+              <div className="flex items-center text-xs text-secondary-600">
+                <Lock className="w-3 h-3 mr-1" />
+                <span>Secure Payments</span>
+              </div>
+            </div>
+
             <p className="text-sm text-secondary-700 mb-4 leading-relaxed">
               Get paid instantly in stablecoins. No borders, no delays.
             </p>
 
             <div className="space-y-2">
-              <Button variant="gradient" size="sm" className="w-full group">
+              <Button 
+                variant="gradient" 
+                size="sm" 
+                className="w-full group"
+                aria-describedby="waitlist-description"
+              >
                 <Users className="w-4 h-4 mr-2 group-hover:animate-bounce-gentle" />
                 Join Waitlist
               </Button>
-              <Button variant="outline" size="sm" className="w-full">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full"
+                aria-describedby="wallet-description"
+              >
+                <Wallet className="w-4 h-4 mr-2" />
                 Connect Wallet
               </Button>
+              <span id="waitlist-description" className="sr-only">
+                Join our waitlist to be notified when StableWork launches
+              </span>
+              <span id="wallet-description" className="sr-only">
+                Connect your wallet to start using StableWork
+              </span>
             </div>
           </div>
         </div>
@@ -81,14 +110,30 @@ export function StickyCTA() {
         }`}
       >
         <div className="flex gap-3">
-          <Button variant="gradient" size="md" className="flex-1 group">
+          <Button 
+            variant="gradient" 
+            size="md" 
+            className="flex-1 group"
+            aria-describedby="mobile-waitlist-description"
+          >
             <Users className="w-4 h-4 mr-2 group-hover:animate-bounce-gentle" />
             Join Waitlist
           </Button>
-          <Button variant="outline" size="md" className="flex-1">
+          <Button 
+            variant="outline" 
+            size="md" 
+            className="flex-1"
+            aria-describedby="mobile-wallet-description"
+          >
             <Wallet className="w-4 h-4 mr-2" />
             Connect
           </Button>
+          <span id="mobile-waitlist-description" className="sr-only">
+            Join our waitlist to be notified when StableWork launches
+          </span>
+          <span id="mobile-wallet-description" className="sr-only">
+            Connect your wallet to start using StableWork
+          </span>
         </div>
       </div>
     </>
