@@ -4,7 +4,7 @@ import { Footer } from "@/components/common/Footer";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { StickyCTA } from "@/components/common/StickyCTA";
-import { GlobeBackground } from "@/components/common/GlobeBackground";
+import dynamic from "next/dynamic";
 import { CTASection } from "@/components/common/CTASection";
 import { HowItWorks } from "@/components/common/HowItWorks";
 import {
@@ -24,6 +24,12 @@ import { FreelancerUseCases } from "@/components/common/FreelancerUseCases";
 import { FreelancerPersonaGrid } from "@/components/common/FreelancerPersonaGrid";
 import { JobCardRow } from "@/components/common/JobCardRow";
 import { WhyStableWork } from "@/components/common/WhyStableWork";
+
+// Dynamically import GlobeBackground with SSR disabled
+const GlobeBackground = dynamic(
+  () => import("@/components/common/GlobeBackground").then(mod => mod.GlobeBackground),
+  { ssr: false }
+);
 
 const features = [
   {
