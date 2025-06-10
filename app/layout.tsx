@@ -130,7 +130,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white font-sans antialiased">
-        <Navbar />
         <AccessibilityProvider>
           <div id="skip-to-content" className="sr-only">
             <a
@@ -140,6 +139,7 @@ export default function RootLayout({
               Skip to main content
             </a>
           </div>
+          <Navbar />
           <main id="main-content">{children}</main>
           <StickyCTA />
         </AccessibilityProvider>
